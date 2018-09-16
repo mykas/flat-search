@@ -1,0 +1,49 @@
+{
+  "name": "mykolass-aruodas",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "Mykolas Sindeikis",
+    "email": "mykolass@wix.com"
+  },
+  "scripts": {
+    "start": "next start ./server/server.js",
+    "build": "next build"
+  },
+  "dependencies": {
+    "axios": "~0.16.0",
+    "cheerio": "^1.0.0-rc.2",
+    "crawler": "^1.1.4",
+    "ejs": "~2.5.0",
+    "express": "~4.15.0",
+    "https": "^1.0.0",
+    "i18next": "~8.4.0",
+    "i18next-xhr-backend": "~1.4.0",
+    "next": "^6.1.1",
+    "prop-types": "~15.6.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-i18next": "^7.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-wix": "^2.0.3",
+    "chai": "^4.1.2",
+    "enzyme": "~2.9.0",
+    "eslint-config-yoshi": "^3.0.0",
+    "husky": "~0.14.0",
+    "jsdom": "^11.2.0",
+    "jsdom-global": "~3.0.0",
+    "mocha": "^5.2.0",
+    "nock": "^9.4.2",
+    "puppeteer": "^1.5.0",
+    "react-test-renderer": "~15.6.0",
+    "styled-components": "^3.4.6",
+    "wix-bootstrap-testkit": "latest",
+    "wix-config-emitter": "latest",
+    "wix-eventually": "^2.2.0",
+    "yoshi": "^3.1.0",
+    "yoshi-style-dependencies": "^3.0.0"
+  }
+}
