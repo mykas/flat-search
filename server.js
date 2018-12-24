@@ -1,6 +1,9 @@
 const express = require('express');
 const next = require('next');
-const { getAllAds } = require('./ads');
+const { getAllAds } = require('./server/ads');
+const tls = require('tls');
+
+tls.DEFAULT_ECDH_CURVE = 'auto';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -10,13 +13,14 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.get('/scrap', async (req, res) => {
+  server.get('/_data/scrap', async (req, res) => {
     const response = await getAllAds();
-    res.send(response);
+    res.json(response);
   });
 
+  // Set up home page as a simple render of the page.
   server.get('*', (req, res) => {
-    return handle(req, res);
+    return app.render(req, res, '/');
   });
 
   server.listen(port, err => {

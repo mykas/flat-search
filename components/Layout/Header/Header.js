@@ -1,15 +1,20 @@
 import React from 'react';
-import { translate } from 'react-i18next';
-import pirate from '../../../assets/pirate.svg';
-import h from './header.scss';
+import styled from 'styled-components';
 
-const Header = ({ t, dataHook }) => (
-  <div data-hook={dataHook} className={h.header}>
-    <img alt="pirate" width="40" height="40" src={pirate} className={h.img} />
-    <h2> {t('app.title')} </h2>{' '}
-  </div>
+const HeaderContainer = styled.div`
+  background-color: #222;
+  padding: 5px;
+  margin: 0;
+  color: white;
+  font-size: 10pt;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const Header = () => (
+  <HeaderContainer>
+    <h2> Hello there </h2>
+  </HeaderContainer>
 );
 
-export default translate(null, {
-  wait: false,
-})(Header);
+export default Header;

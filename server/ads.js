@@ -1,10 +1,9 @@
-import 'regenerator-runtime/runtime';
-import cheerio from 'cheerio';
-import axios from 'axios';
+const cheerio = require('cheerio');
+const axios = require('axios');
 
 const baseURL = 'http://www.aruodas.lt/butu-nuoma/vilniuje';
 
-export const parseRow = html => {
+const parseRow = html => {
   const $ = cheerio.load(html, {
     decodeEntities: false,
   });
@@ -23,10 +22,10 @@ export const parseRow = html => {
   };
 };
 
-export const getAllAds = async () => {
+const getAllAds = async () => {
   let list = [];
   const response = await axios.get(
-    `${baseURL}/puslapis/1?FRoomNumMin=1&FRoomNumMax=2`,
+    `${baseURL}/puslapis/1?FRoomNumMin=1&FRoomNumMax=2`
   );
   const $ = cheerio.load(response.data);
   $('.list-search .list-row').each((i, elm) => {
@@ -35,4 +34,9 @@ export const getAllAds = async () => {
       : undefined;
   });
   return list;
+};
+
+module.exports = {
+  parseRow,
+  getAllAds,
 };
